@@ -1,17 +1,17 @@
 $(() => {
-    if (document.prefixFilters === 'undefined') document.prefixFilters = [];
+    let prefixFilters = [];
     printPrefixFilters();
 
     function printPrefixFilters() {
         const filtersDisplay = $('#filtersDisplay');
         filtersDisplay.html('');
-        for (let i in document.prefixFilters) {
-            filtersDisplay.append('<a href="#" class="badge badge-secondary" on-click="deleteFilter(this)">' + document.prefixFilters[i] + '</a>');
+        for (let i in prefixFilters) {
+            filtersDisplay.append('<a href="#" class="badge badge-secondary" on-click="deleteFilter(this)">' + prefixFilters[i] + '</a>');
         }
     }
 
     $("#filtersDisplay").on("click", "a.badge", function () {
-        document.prefixFilters.splice(document.prefixFilters.indexOf($(this).html()), 1);
+        prefixFilters.splice(prefixFilters.indexOf($(this).html()), 1);
         printPrefixFilters();
         return false;
     });
@@ -19,16 +19,14 @@ $(() => {
     $('#filtersForm').submit(() => {
         $('#addFilter').attr('disabled', true);
         const filter = $('#filter').val().toUpperCase();
-        if (filter.match(/^[A-Z]+$/) && !document.prefixFilters.includes(filter)) {
-            document.prefixFilters.push(filter);
+        if (filter.match(/^[A-Z]+$/) && !prefixFilters.includes(filter)) {
+            prefixFilters.push(filter);
             printPrefixFilters();
             $('#filter').val('');
         }
         $('#addFilter').removeAttr('disabled');
         return false;
     });
-
-
 
 
     const statusColorMap = {
@@ -50,7 +48,7 @@ $(() => {
         const tagRegex = /([A-Za-z]+)-([0-9]+)/;
         const matches = tagRegex.exec(tag);
         if (matches) {
-            return document.prefixFilters.includes(matches[1]);
+            return prefixFilters.includes(matches[1]);
         } else {
             console.error(tag);
             return false;

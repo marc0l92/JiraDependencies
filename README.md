@@ -2,8 +2,9 @@
 
 Jira Dependencies diagram generator using PlantUML
 
+![Screenshot1](./doc/Screenshot1.png)
 
-# TODO
+## TODO
 
 * [x] Integration with Electron
 * [ ] Use local storage to save settings
