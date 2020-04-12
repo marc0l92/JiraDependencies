@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Jira Dependencies</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no'>
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div id="sidebar">
+        <h3>Jira Dependencies</h3>
+        <div class="form-group">
+            <label>Username</label>
+            <input type="test" class="form-control form-control-sm" id="username" placeholder="Username">
+        </div>
+        <div class="form-group">
+            <label>Password</label>
+            <input type="password" class="form-control form-control-sm" id="password" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label>Initial Issue</label>
+            <input type="test" class="form-control form-control-sm" id="initialIssue" placeholder="ABC-123">
+        </div>
+        <div class="form-group">
+            <label>Links Type</label>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Dependency" checked>
+                        <label class="form-check-label">
+                            Dependency
+                        </label>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Blocks" checked>
+                        <label class="form-check-label">
+                            Blocks
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Relates">
+                        <label class="form-check-label">
+                            Relates
+                        </label>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="Clones">
+                        <label class="form-check-label">
+                            Clones
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <form id="filtersForm">
+            <div class="form-group">
+                <label>Issue prefix filter</label>
+                <div class="input-group">
+                    <input type="test" class="form-control form-control-sm" id="filter" placeholder="ABC">
+                    <div class="input-group-append">
+                        <button type="submit" class="btn btn-sm btn-success" id="addFilter">+</button>
+                    </div>
+                </div>
+                <div id="filtersDisplay">
+                </div>
+            </div>
+        </form>
+        <div class="form-group">
+            <a data-toggle="collapse" href="#advancedSettings">Advanced Settings</a>
+        </div>
+        <div class="collapse" id="advancedSettings">
+            <div class="form-group">
+                <label>Jira Server</label>
+                <input type="test" class="form-control form-control-sm" id="host"
+                    placeholder="https://jira.atlassian.com">
+            </div>
+            <div class="form-group">
+                <label>PlantUML Server</label>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="publicServer" checked>
+                    <label class="form-check-label">Use official public server</label>
+                </div>
+                <input type="test" class="form-control form-control-sm" id="platnumlServer"
+                    placeholder="http://www.plantuml.com/plantuml">
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary" id="generate">Generate</button>
+    </div>
+    <div id="wrapper">
+        <div class="container-fluid">
+            <div class="d-flex flex-row-reverse">
+                <span id="status">Status: Idle</span>
+            </div>
+            <h3>Diagram</h3>
+            <img class="diagram" id="diagram">
+            <h3>PlantUML Source</h3>
+            <textarea class="form-control" rows="5" readonly id="diagramSource"></textarea>
+        </div>
+    </div>
+
+    <script src="./node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="./node_modules/plantuml-encoder/dist/plantuml-encoder.min.js"></script>
+    <script src="./renderer.js"></script>
+</body>
+
+</html>

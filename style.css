@@ -1,0 +1,26 @@
+#wrapper {
+    position: relative;
+    width: 75%;
+    margin-left: 25%;
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    padding: 30px;
+    background-color: #eee;
+    z-index: 1;
+    width: 25%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.badge {
+    margin-right: 5px;
+}
+
+.diagram {
+    width: 100%;
+}
