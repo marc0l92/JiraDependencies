@@ -17,7 +17,7 @@
   "repository": "https://github.com/marc0l92/JiraDependencies.git",
   "dependencies": {
     "bootstrap": "4.4.1",
-    "jquery": "3.4.1",
+    "jquery": "3.5.0",
     "plantuml-encoder": "^1.4.0",
     "popper": "^1.0.1"
   },
